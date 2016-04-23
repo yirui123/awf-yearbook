@@ -1,0 +1,284 @@
+/* @import "bootstrap_utilities";
+@import "idangerous.swiper";
+@import "retina-sprites";
+@import "streamline-font";
+@import "animation-prefixer";*/
+/* Master Styles */
+@import url(http://fonts.googleapis.com/css?family=Vollkorn|Roboto);
+/* line 10, ../sass/styles.scss */
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 14, ../sass/styles.scss */
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+/* line 19, ../sass/styles.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 27, ../sass/styles.scss */
+body, input[text], button {
+  color: #888;
+  font-family: Cambria, Georgia;
+}
+
+/* line 31, ../sass/styles.scss */
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 35, ../sass/styles.scss */
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 44, ../sass/styles.scss */
+button:hover {
+  background-color: #cfd8dc;
+}
+
+/* line 47, ../sass/styles.scss */
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* Navigation link styles */
+/* line 64, ../sass/styles.scss */
+.container {
+  position: absolute;
+  width: 100%;
+  heigh: 100%;
+  text-align: center;
+  top: 40%;
+  left: 0;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+/* line 74, ../sass/styles.scss */
+.container a {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #FF5252;
+  text-decoration: none;
+  font-size: 20px;
+  overflow: hidden;
+  top: 5px;
+}
+/* line 84, ../sass/styles.scss */
+.container a:after {
+  content: '';
+  position: absolute;
+  background: #FF5252;
+  height: 2px;
+  width: 0%;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 0;
+  transition: .35s ease;
+}
+/* line 95, ../sass/styles.scss */
+.container a:hover:after, .container a:focus:after, .container a:active:after {
+  width: 100%;
+}
+
+/* line 104, ../sass/styles.scss */
+.button_container {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  height: 27px;
+  width: 35px;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+}
+/* line 114, ../sass/styles.scss */
+.button_container:hover {
+  opacity: .7;
+}
+/* line 119, ../sass/styles.scss */
+.button_container.active .top {
+  transform: translateY(11px) translateX(0) rotate(45deg);
+  background: #FFF;
+}
+/* line 123, ../sass/styles.scss */
+.button_container.active .middle {
+  opacity: 0;
+  background: #FFF;
+}
+/* line 128, ../sass/styles.scss */
+.button_container.active .bottom {
+  transform: translateY(-11px) translateX(0) rotate(-45deg);
+  background: #FFF;
+}
+/* line 134, ../sass/styles.scss */
+.button_container span {
+  background: #FF5252;
+  border: none;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .35s ease;
+  cursor: pointer;
+}
+/* line 145, ../sass/styles.scss */
+.button_container span:nth-of-type(2) {
+  top: 11px;
+}
+/* line 149, ../sass/styles.scss */
+.button_container span:nth-of-type(3) {
+  top: 22px;
+}
+
+/* line 155, ../sass/styles.scss */
+.overlay {
+  position: fixed;
+  background: #FF5252;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, width 1s;
+  overflow: hidden;
+}
+/* line 167, ../sass/styles.scss */
+.overlay li {
+  animation: fadeInLeft .7s ease forwards;
+  animation-delay: 0s;
+  list-style: none;
+}
+/* line 172, ../sass/styles.scss */
+.overlay li a {
+  text-decoration: none;
+}
+/* line 177, ../sass/styles.scss */
+.overlay.open {
+  opacity: .8;
+  visibility: visible;
+  height: 100%;
+}
+/* line 183, ../sass/styles.scss */
+.overlay nav {
+  position: relative;
+  height: 70%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-family: 'Vollkorn', serif;
+  font-weight: 400;
+  text-align: center;
+}
+/* line 193, ../sass/styles.scss */
+.overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+/* line 201, ../sass/styles.scss */
+.overlay ul li {
+  list-style: none;
+  display: block;
+  height: 25%;
+  height: calc(100% / 4);
+  min-height: 50px;
+  position: relative;
+  opacity: 0;
+}
+/* line 210, ../sass/styles.scss */
+.overlay ul li a {
+  display: block;
+  position: relative;
+  color: #FFF;
+  text-decoration: none;
+  overflow: hidden;
+}
+/* line 217, ../sass/styles.scss */
+.overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
+  width: 100%;
+}
+/* line 223, ../sass/styles.scss */
+.overlay ul li a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: #FFF;
+  transition: .35s;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: .5;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+/* Navbar ends*/
+/* Page */
+/* line 254, ../sass/styles.scss */
+.full-screen {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 262, ../sass/styles.scss */
+.landing {
+  background-color: #e2e2e2;
+}
+
+/* line 266, ../sass/styles.scss */
+.how-it-works {
+  background-color: #666;
+}
+
+/* line 270, ../sass/styles.scss */
+.awf-dogs {
+  background-color: #333;
+}
+
+/* line 274, ../sass/styles.scss */
+.sign-up-page {
+  background-color: #000;
+}
+
+/* line 278, ../sass/styles.scss */
+.awf-supporters {
+  background-color: #e1e1e1;
+}
